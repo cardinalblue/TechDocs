@@ -56,9 +56,10 @@ Recording:
         
         let toolbarsQuery = app.toolbars
         toolbarsQuery.buttons["Pick an Image"].tap()
-        app.tables.buttons["Moments"].tap()
-        app.collectionViews["PhotosGridView"].cells["Photo, Portrait, May 05, 11:48 PM"].tap()
+        app.tables.buttons["Camera Roll"].tap()
+        app.collectionViews["PhotosGridView"].cells["Photo, Landscape, March 13, 2011, 8:17 AM"].tap()
         
+        // Below is the code that's being written when you click on the textfield
         let element = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
         element.childrenMatchingType(.TextField).elementBoundByIndex(0).tap()
         app.buttons["Done"].tap()
