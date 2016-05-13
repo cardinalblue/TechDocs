@@ -2,11 +2,8 @@
 
 ## XCTest
 
-### Convention
+### Split the test method with `Given`, `When`, `Then` 
 
-#### Given When Then 
-
-Split the test method into three parts, `given` `when` `then`.
 The `given` section sets up the environments and input variables.
 The `when` section contains the code we want test.
 The `then` section checks the result of our action.
@@ -25,7 +22,6 @@ The `then` section checks the result of our action.
     XCTAssertEqualObjects(encodedURL, @"/search?q=%24%26%3F%40");
 }
 ```
-
 
 ### Disable a Test
 
