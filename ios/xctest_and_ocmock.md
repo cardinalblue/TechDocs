@@ -2,7 +2,7 @@
 
 ## XCTest
 
-### Split the test method with `given`, `when`, `then` 
+### Split the test method with `given`, `when`, `then`
 
 - `given` : sets up the environments and input variables.
 - `when` : contains the code we want test.
@@ -53,6 +53,17 @@ OCMStub([mockObj someMethodOrProperty]).andReturn(someValue);
 
 ### Partial Mock Object with `OCMockObject partialMock:`
 
+The problem with OCMClassMock is that the entire object is mocked, but sometimes we only want to mock some
+value of the object. `OCMockObject partialMock:` can let us use `OCMStub` to replace the value we want to test, 
+but remains the other behaviors of the objec.
+
+```
+SomeClass *obj = [SomeClass new];
+obj.somePublicProperty = someValue;
+
+id mockObj = [OCMockObject partialMockForObject:obj];
+OCMStub([mockObj someMethod]).andReturn(anotherValue);
+```
 
 ## References
 
