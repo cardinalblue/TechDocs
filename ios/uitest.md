@@ -42,7 +42,7 @@ Everything in the **setUp()** will be run **_EVERY TIME_** when it's running a n
 And once a test function is done, it will run **tearDown()**.
 
 ---------------------------------------------------------------------
-After recording certain actions, you will see the codes written in _testExample()_.
+Click the red button to record certain actions, you will see the codes written in _testExample()_.
 Most of time, you will have to rewrite the code, but the recording function gives you a good start.
 
 
@@ -94,3 +94,7 @@ Modified:
         XCTAssert(currentImage.exists)
     }
 ```
+
+When you click on the textfield, UITest does not know what you are typing.
+Therefore, you will have to manually add `app.typeText("PicCollage")` to enter text.
+
