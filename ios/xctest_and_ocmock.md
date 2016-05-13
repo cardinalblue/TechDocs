@@ -4,9 +4,9 @@
 
 ### Split the test method with `Given`, `When`, `Then` 
 
-The `given` section sets up the environments and input variables.
-The `when` section contains the code we want test.
-The `then` section checks the result of our action.
+The `given` section sets up the environments and input variables.   
+The `when` section contains the code we want test.   
+The `then` section checks the result of our action.   
 
 ```
 - (void)testThatItDoesURLEncoding
