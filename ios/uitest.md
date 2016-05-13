@@ -24,6 +24,27 @@ Usually, we'll set the **accessibility identifier** in order for the UITest to r
 }
 ```
 
+Some useful hint:
+
+When you're setting the accessibility identifier, it's better to also set the **_accessibility label_** to be the same as the identifier.
+The reason behinds thats is it will be easy for your to debug your code. 
+
+When you use the simulator, once you enable the accessibility inspector, you can click the element to check it's label (aka. identifier) in this case. However, make sure you set the label back to what it was after you're done testing because you do not want the people who actually use VoiceOver clicks on the view and hear something random.
+
+Go to **Settings -> General -> Accessibility -> turn on VoiceOver**,
+
 [Link to see what UIAccessibilityElement is about](https://developer.apple.com/library/tvos/documentation/UIKit/Reference/UIAccessibilityElement_Class/index.html)
 
 ## XCTest
+
+Once you open the UITest class, you will see three functions **setUp()**, **tearDown()** and **testExample()**.
+Everything in the **setUp()** will be run **_EVERY TIME_** when it's running a new test function.
+And once a test function is done, it will run **tearDown()**.
+
+---------------------------------------------------------------------
+After recording certain actions, you will see the codes written in _testExample()_.
+Most of time, you will have to rewrite the code, but the recording function gives you a good start.
+
+
+
+
