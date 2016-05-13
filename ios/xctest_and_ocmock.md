@@ -2,11 +2,11 @@
 
 ## XCTest
 
-### Split the test method with `Given`, `When`, `Then` 
+### Split the test method with `given`, `when`, `then` 
 
-The `given` section sets up the environments and input variables.   
-The `when` section contains the code we want test.   
-The `then` section checks the result of our action.   
+- `given` : sets up the environments and input variables.
+- `when` : contains the code we want test.
+- `then` : checks the result of our action.   
 
 ```
 - (void)testThatItDoesURLEncoding
