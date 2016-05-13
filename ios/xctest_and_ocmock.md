@@ -67,4 +67,4 @@ OCMStub([mockObj someMethod]).andReturn(anotherValue);
 
 ## References
 
-[objc.io - XCTest](https://www.objc.io/issues/15-testing/xctest/)
+- [objc.io - XCTest](https://www.objc.io/issues/15-testing/xctest/)
