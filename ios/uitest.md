@@ -1,8 +1,8 @@
 # Automate UI Testing in iOS
 
 ## Intro to Automating UI tests
-In iOS7, Apple introduced automating UI testing which helps developers to significantly reduce the amount of time in testing their apps.
-The recording function records user's actions and automatically writes down the code in test methods so that later on when you want to test the same feature, UI test can run the whole process automatically.
+In iOS7, Apple introduced automating UI testing which helps developers to significantly reduce the amount of time in testing their app.
+The recording function records user's actions and automatically writes down the code in test methods so that later on when you want to test the certain feature with the same user actions, UI testing will be able to run the whole process automatically.
 
 ## XCUI API - Accessibility
 In order for the UITest to recognize the elements and interact with it, we need to make our elements **accessible**.
@@ -15,7 +15,7 @@ Add the below code in your object class
 }
 ```
 
-Usually, we'll set the **accessibility identifier** in order for the UITest to recognize what the element is and perform the action.
+Usually, we'll set the **accessibility identifier** in order for the UITest to recognize what the element is and perform the task.
 
 ```objective-c
 - (NSString *)accessibilityIdentifier
@@ -27,7 +27,7 @@ Usually, we'll set the **accessibility identifier** in order for the UITest to r
 Some useful hint:
 
 When you're setting the accessibility identifier, it's better to also set the **_accessibility label_** to be the same as the identifier.
-The reason behinds thats is it will be easy for your to debug your code. 
+The reason behinds that is it will be easy for your to debug your code. 
 
 When you use the simulator, once you enable the accessibility inspector, you can click the element to check it's label (aka. identifier) in this case. However, make sure you set the label back to what it was after you're done testing because you do not want the people who actually use VoiceOver clicks on the view and hear something random.
 
@@ -38,11 +38,11 @@ Go to **Settings -> General -> Accessibility -> turn on VoiceOver**,
 ## XCTest
 
 Once you open the UITest class, you will see three functions **setUp()**, **tearDown()** and **testExample()**.
-Everything in the **setUp()** will be run **_EVERY TIME_** when it's running a new test function.
+The **setUp()** function will be run **_EVERY TIME_** when it's running a new test function.
 And once a test function is done, it will run **tearDown()**.
 
 ---------------------------------------------------------------------
-Click the red button to record certain actions, you will see the codes written in _testExample()_.
+Click the red button to record certain action, you will see the codes written in _testExample()_.
 Most of time, you will have to rewrite the code, but the recording function gives you a good start.
 
 
@@ -95,6 +95,6 @@ Modified:
     }
 ```
 
-When you click on the textfield, UITest does not know what you are typing.
+When you're recording, clicking on the textfield and trying to enter some text through keyboard does not work.
 Therefore, you will have to manually add `app.typeText("PicCollage")` to enter text.
 
