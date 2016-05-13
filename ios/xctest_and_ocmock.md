@@ -4,9 +4,9 @@
 
 ### Split the test method with `given`, `when`, `then`
 
-- `given` : sets up the environments and input variables.
-- `when` : contains the code we want test.
-- `then` : checks the result of our action.   
+- `given` : set up the environment and input variables.
+- `when`  : contain the code we want to test.
+- `then`  : check the result of our action.   
 
 ```
 - (void)testThatItDoesURLEncoding
@@ -25,7 +25,7 @@
 
 ### Disable a Test
 
-Add a prefix `DISABLED_` to the test method you want to disabled, and the XCTest will skip the method since the method name no longer starts with `test`.
+Add a prefix `DISABLED_` to the test method you want to disable, so the XCTest will skip the method since the method name no longer starts with the keyword `test`.
 
 ```
 - (void)DISABLED_testSomthing
@@ -54,8 +54,8 @@ OCMStub([mockObj someMethodOrProperty]).andReturn(someValue);
 ### Partial Mock Object with `OCMockObject partialMock:`
 
 The problem with OCMClassMock is that the entire object is mocked, but sometimes we only want to mock some
-value of the object. `OCMockObject partialMock:` can let us use `OCMStub` to replace the value we want to test, 
-but remains the other behaviors of the objec.
+parts of the object. `OCMockObject partialMock:` lets us use `OCMStub` to replace the value we want to test, 
+but the other behaviors of the object remain the same.
 
 ```
 SomeClass *obj = [SomeClass new];
