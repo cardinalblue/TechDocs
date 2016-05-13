@@ -8,7 +8,7 @@ The recording function records user's actions and automatically writes down the 
 In order for the UITest to recognize the elements and interact with it, we need to make our elements **accessible**.
 
 Add the below code in your object class
-```
+```objective-c
 - (BOOL)isAccessibilityElement
 {
     return YES;
@@ -17,7 +17,7 @@ Add the below code in your object class
 
 Usually, we'll set the **accessibility identifier** in order for the UITest to recognize what the element is and perform the action.
 
-```
+```objective-c
 - (NSString *)accessibilityIdentifier
 {
     return @"image scrap view";
@@ -46,5 +46,50 @@ After recording certain actions, you will see the codes written in _testExample(
 Most of time, you will have to rewrite the code, but the recording function gives you a good start.
 
 
+Recording:
+```swift
+    func testExample() {
+        // Use recording to get started writing UI tests.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        app.navigationBars["Sent Memes"].buttons["Add"].tap()
+        
+        let toolbarsQuery = app.toolbars
+        toolbarsQuery.buttons["Pick an Image"].tap()
+        app.tables.buttons["Moments"].tap()
+        app.collectionViews["PhotosGridView"].cells["Photo, Portrait, May 05, 11:48 PM"].tap()
+        
+        let element = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
+        element.childrenMatchingType(.TextField).elementBoundByIndex(0).tap()
+        app.buttons["Done"].tap()
+    }
+```
 
-
+Modified:
+```swift
+    func testExample() {
+        // Use recording to get started writing UI tests.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        app.navigationBars["Sent Memes"].buttons["Add"].tap()
+        
+        // choose an image from camera roll
+        app.toolbars.buttons["Pick an Image"].tap()
+        app.tables.buttons["Camera Roll"].tap()
+        app.collectionViews["PhotosGridView"].cells["Photo, Landscape, March 13, 2011, 8:17 AM"].tap()
+        
+        // tap on the textfield to edit
+        app.textFields["TopTextfield"].tap()
+        
+        // manually type the text in textfield
+        app.typeText("PicCollage")
+        
+        app.buttons["Done"].tap()
+        
+        let currentImage = app.images["MemeImage"]
+  
+        // Check if the image exists on the view
+        XCTAssert(currentImage.exists)
+    }
+```
